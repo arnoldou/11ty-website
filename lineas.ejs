@@ -1,0 +1,46 @@
+<%- include('_includes/header') -%>
+
+<div class="container">        
+    <h1 class="mt-4">Taller Chart.js en Nodeschool San Miguel</h1>
+    <div style="position: relative;">
+        <canvas id="lienzo" width="600rem" height="400rem"></canvas>
+    </div>        
+</div>
+
+<script>
+    let context = document.getElementById('lienzo').getContext('2d');
+    let miGrafica = new Chart(context, {
+        type: 'line', // horizontaBar, pie, line, doughnut, radar, polarArea
+        data:{
+            labels:['Nodejs', 'Koa', 'Nextjs', 'Meteor', 'Sails', 'FeathersJs'],
+            datasets:[{
+                data: [12764, 1701, 1491, 922, 335, 317],
+                borderColor: 'purple',
+                label:'Javascript Frameworks 2018',
+                fill: false
+            },{
+                data: [14541, 2198, 30, 1625, 630, 447],
+                borderColor: '#2e99b0',
+                label:'Javascript Frameworks 2017',
+                fill: false
+            }]
+        },
+        options: {
+            responsive:true,
+            maintainAspectRatio:false,
+            title:{
+                position: 'top', // bottom, right, left
+                display: true,
+                text:'Gráfico de Linea - Que Framework Backend Usas.',
+                fontSize: 25
+            },
+            legend:{
+                display: true,
+                position: 'bottom'
+            }
+        }
+    });
+
+</script>
+
+<%- include('_includes/footer') -%>

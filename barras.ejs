@@ -1,0 +1,57 @@
+<%- include('_includes/header') -%>
+
+<div class="container">
+    <h2 class="mt-4">Taller Chart.js en Nodeschool San Miguel</h2>
+    <div style="position:relative;"> 
+        <canvas class="my-4" id="lienzo" width="800" height="380"></canvas>
+    </div>
+</div>
+
+<script>
+    let context = document.getElementById("lienzo").getContext("2d");
+    let miGrafica = new Chart(context, {
+        type: "bar", // horizontaBar, pie, line, doughnut, radar, polarArea
+        data: {
+            labels: [
+                "Vuejs",
+                "React",
+                "Angular",
+                "Preact",
+                "Ember",
+                "Polimer"
+            ],
+            datasets: [
+                {
+                    data: [5810, 13062, 4817, 1251, 1013, 635],
+                    backgroundColor: [
+                        "#228c7b",
+                        "#68bdff",
+                        "#f34949",
+                        "#7045af",
+                        "#ff9090",
+                        "#40a8c4"
+                    ],
+                    borderWidth: 1,
+                    borderColor: "#999",
+                    label: "Javascript Frameworks"
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio:false,
+            title: {
+                position: "top", // bottom, right, left
+                display: true,
+                text: "Gráfico de Barras - Que Framework Frontend Usas.",
+                fontSize: 25
+            },
+            legend: {
+                display: false,
+                position: "right"
+            }
+        }
+    });
+</script>
+
+<%- include('_includes/footer') -%>
